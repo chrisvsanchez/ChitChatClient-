@@ -1,6 +1,4 @@
-import React from "react";
-import { API_ROOT, API_WS_ROOT, HEADERS } from "../constants";
-
+import { API_ROOT, HEADERS } from "../constants";
 import React, { Component } from "react";
 
 class NewMessageForm extends Component {

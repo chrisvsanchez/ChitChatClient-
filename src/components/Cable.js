@@ -1,5 +1,5 @@
 import React from "react";
-import { ActionCable, ActionCableProvider } from "react-actioncable-provider";
+import { ActionCable } from "react-actioncable-provider";
 
 const Cable = ({ conversations, handleRecievedMessage }) => {
   return (

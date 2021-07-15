@@ -1,4 +1,3 @@
-import React from "react";
 import { API_ROOT, HEADERS } from "../constants";
 
 import React, { Component } from "react";
