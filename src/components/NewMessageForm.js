@@ -6,8 +6,8 @@ class NewMessageForm extends Component {
     text: "",
     conversation_id: this.props.conversation_id,
   };
-  componentDidMount = (nextProps) => {
-    this.setState({ converation_id: nextProps.conversation_id });
+  componentWillReceiveProps = (nextProps) => {
+    this.setState({ conversation_id: nextProps.conversation_id });
   };
   handleChange = (e) => {
     this.setState({ text: e.target.value });

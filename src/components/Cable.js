@@ -1,7 +1,7 @@
 import React from "react";
 import { ActionCable } from "react-actioncable-provider";
 
-const Cable = ({ conversations, handleRecievedMessage }) => {
+const Cable = ({ conversations, handleReceivedMessage }) => {
   return (
     <>
       {conversations.map((conversation) => {
@@ -9,10 +9,10 @@ const Cable = ({ conversations, handleRecievedMessage }) => {
           <ActionCable
             key={conversation.id}
             channel={{
-              channel: "MessageChannel",
+              channel: "MessagesChannel",
               conversation: conversation.id,
             }}
-            onRecieved={handleRecievedMessage}
+            onReceived={handleReceivedMessage}
           />
         );
       })}

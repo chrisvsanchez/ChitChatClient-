@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { ActionCable } from "react-actioncable-provider";
 import { API_ROOT } from "../constants";
 import NewConversationForm from "./NewConversationForm";
-import MessagesArea from "./MessagesArea";
-import Cable from "./cable";
+import MessagesArea from "./MessageArea";
+import Cable from "./Cable";
 
-class Conversationlist extends Component {
+class ConversationsList extends Component {
   state = {
     conversations: [],
     activeConversation: null,
@@ -17,16 +17,16 @@ class Conversationlist extends Component {
   };
   handleClick = (id) => {
     this.setState({
-      activeConversations: id,
+      activeConversation: id,
     });
   };
-  handleRecievedConversation = (response) => {
+  handleReceivedConversation = (response) => {
     const { conversation } = response;
     this.setState({
-      conversation: [...this.state.conversations, conversation],
+      conversations: [...this.state.conversations, conversation],
     });
   };
-  handleRecievedMessage = (response) => {
+  handleReceivedMessage = (response) => {
     const { message } = response;
     const conversations = [...this.state.conversations];
     const conversation = conversations.find(
@@ -41,12 +41,12 @@ class Conversationlist extends Component {
       <div className="conversationsList">
         <ActionCable
           channel={{ channel: "ConversationsChannel" }}
-          onRecieved={this.handleRecievedConversation}
+          onReceived={this.handleReceivedConversation}
         />
         {this.state.conversations.length ? (
           <Cable
             conversations={conversations}
-            handleRecievedMessage={this.handleRecievedMessage}
+            handleReceivedMessage={this.handleReceivedMessage}
           />
         ) : null}
         <h2>Conversations</h2>
@@ -64,7 +64,7 @@ class Conversationlist extends Component {
     );
   };
 }
-export default Conversationlist;
+export default ConversationsList;
 //helper functions
 
 const findActiveConversation = (conversations, activeConversation) => {

@@ -1,5 +1,4 @@
 import { API_ROOT, HEADERS } from "../constants";
-
 import React, { Component } from "react";
 
 class NewConversationForm extends Component {

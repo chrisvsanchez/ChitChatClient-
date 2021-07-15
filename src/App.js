@@ -1,10 +1,13 @@
-import conversationList from "./components/conversationList";
-function App() {
-  return (
-    <div>
-      <conversationList />
-    </div>
-  );
+import React, { Component } from "react";
+import ConversationsList from "./components/ConversationsList";
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <ConversationsList />
+      </div>
+    );
+  }
 }
 
 export default App;
